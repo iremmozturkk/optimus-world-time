@@ -67,16 +67,6 @@ npm install
 npm run dev
 ```
 
-4️⃣ Prodüksiyon için build alın:
-```bash
-npm run build
-```
-
-5️⃣ Prodüksiyon build’ini önizleyin:
-```bash
-npm run preview
-```
-
 ## 🧰 API Referansı
 
 ### Kullanılabilir Zaman Dilimlerini Al
