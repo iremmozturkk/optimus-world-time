@@ -1,66 +1,88 @@
-Optimus World Time
-Optimus World Time, dünya üzerindeki farklı şehirlerin zaman dilimlerini ve mevcut saatlerini gerçek zamanlı olarak görüntüleyen modern bir web uygulamasıdır. Proje; React, React Query ve Emotion ile geliştirilmiştir.
+# Optimus World Time
 
-📋 Özellikler
-Dünya çapındaki tüm zaman dilimlerini listeler.
+Optimus World Time, dünya üzerindeki farklı şehirlerin zaman dilimlerini ve mevcut saatlerini gerçek zamanlı olarak görüntüleyen modern bir web uygulamasıdır. Kullanıcı dostu bir arayüz, canlı saat güncellemeleri, tema değiştirme ve arama özellikleriyle birlikte gelir.
 
-Seçilen şehrin/ülkenin mevcut saatini canlı olarak gösterir.
+## 🚀 Özellikler
 
-Zaman dilimleri arasında arama yapabilme.
+- 🌐 Tüm dünya zaman dilimlerini listeler.
+- 🔎 Zaman dilimleri arasında arama yapabilirsiniz.
+- 🕒 Seçilen şehrin mevcut saatini canlı olarak gösterir.
+- 🎨 Koyu ve açık tema desteği.
+- ⏱️ Saat bilgisi saniye saniye güncellenir.
 
-Koyu/Açık tema desteği.
+## 🛠️ Kullanılan Teknolojiler
 
-Saat bilgisi her saniye otomatik olarak güncellenir.
+- **React** — Kullanıcı arayüzü için.
+- **React Router** — Sayfalar arasında geçiş için.
+- **React Query (Tanstack Query)** — API isteklerini yönetmek ve önbellekleme için.
+- **Emotion** — CSS-in-JS ile stillendirme için.
+- **Day.js** — Tarih ve saat işlemleri için.
 
-🛠️ Kullanılan Teknolojiler
-React: Kullanıcı arayüzü için.
+## 📂 Proje Yapısı
 
-React Router: Sayfa yönlendirmeleri için.
-
-React Query: API sorgularını yönetmek ve önbelleklemek için.
-
-Emotion: CSS-in-JS çözümü ile stillendirme için.
-
-Day.js: Tarih ve saat işlemleri için.
-
-Tanstack Query: (React Query) zaman dilimi ve saat verilerini almak için.
-
- Proje Yapısı
- optimus-world-time/
+```
+optimus-world-time/
 ├── public/
 │   └── index.html
 ├── src/
 │   ├── api/
 │   │   └── timeApi.js            # Zaman ve zaman dilimi API çağrıları
 │   ├── components/
-│   │   └── TimezoneList.jsx      # Zaman dilimi listesi
+│   │   └── TimezoneList.jsx      # Zaman dilimi listesi bileşeni
 │   ├── contexts/
-│   │   └── ConfigContext.jsx     # Tema yönetimi ve diğer ayarlar
+│   │   └── ConfigContext.jsx     # Tema yönetimi ve ayarlar
 │   ├── pages/
 │   │   └── Home.jsx              # Ana sayfa
 │   ├── styles/
-│   │   └── Home.styles.js        # Sayfa stilleri
+│   │   └── Home.styles.js        # Stiller
 │   ├── App.jsx                   # Uygulama kök bileşeni
 │   ├── index.js                  # Giriş noktası
 ├── package.json
 └── README.md
+```
 
-Kurulum ve Çalıştırma
+## 📦 Kurulum
 
-Projeyi klonlama:
+1️⃣ Projeyi klonlayın:
+
+```bash
 git clone <repo-url>
 cd optimus-world-time
+```
 
-Bağımlılıkları yükleme:
+2️⃣ Bağımlılıkları yükleyin:
+
+```bash
 npm install
+```
 
-Uygulamayı başlatma:
+3️⃣ Uygulamayı başlatın:
+
+```bash
 npm start
+```
 
-API:
+Ardından tarayıcıda [http://localhost:3000](http://localhost:3000) adresinden uygulamayı görüntüleyebilirsiniz.
 
-Projede iki adet API çağrısı bulunmaktadır:
+## 📸 Ekran Görüntüleri
 
-getTimezones(): Tüm zaman dilimlerini döner.
+### 🌑 Koyu Tema - Ana Sayfa
+![Dark Screen 1](Dark_Screen_1.png)
 
-getTime(timezone): Belirtilen zaman dilimindeki mevcut saati döner.
+
+### 🌑 Koyu Tema - Şehir Saati
+
+![Dark Screen 2](Dark_Screen_2.png)
+
+
+### ☀️ Açık Tema - Ana Sayfa
+![Light Screen 1](Light_Screen_1.png)
+
+
+
+### ☀️ Açık Tema - Şehir Saati
+
+![Light Screen 2](Light_Screen_2.png)
+
+
+
