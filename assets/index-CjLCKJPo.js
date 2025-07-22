@@ -73,7 +73,7 @@ Please change the parent <Route path="${q}"> to <Route path="${q==="/"?"*":`${q}
   background-color: ${l==="dark"?"#002359":"#f5f5f5"};
   min-height: 100vh;
 `,tb=l=>ce`
-  background: url('/src/assets/${l==="dark"?"header_dark.png":"header_light.png"}');
+  background: url('/header_${l==="dark"?"dark":"light"}.png');
   background-size: cover;
   background-position: center;
   color: ${l==="dark"?"white":"black"};
@@ -104,7 +104,7 @@ Please change the parent <Route path="${q}"> to <Route path="${q==="/"?"*":`${q}
   border-radius: 16px;
   border: 1px solid #ccc;
   background-color: #fff;
-  background-image: url('/src/assets/search_icon.png');
+  background-image: url('/search_icon.png');
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 16px;
@@ -131,7 +131,7 @@ Please change the parent <Route path="${q}"> to <Route path="${q==="/"?"*":`${q}
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: url('/src/assets/${l==="dark"?"arrow_background.png":"arrow_background_light.png"}') no-repeat center/cover;
+  background: url('/arrow_background_${l==="dark"?"dark":"light"}.png') no-repeat center/cover;
   border-radius: 50%;
   display: flex;
   justify-content: center;
