@@ -1,7 +1,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
+//Tema türleri
 type Theme = "light" | "dark";
 
+//Config yapısı
 type Config = {
   timezone: string;
   theme: Theme;
@@ -9,6 +11,7 @@ type Config = {
   dateFormat: string;
 };
 
+//Varsayılan Config 
 const defaultConfig: Config = {
   timezone: "Europe/Istanbul",
   theme: "dark",
@@ -16,18 +19,7 @@ const defaultConfig: Config = {
   dateFormat: "DD/MM/YYYY",
 };
 
-const optimusConfig: Partial<Config> = {
-  timezone: "Europe/London",
-  is24Hour: false,
-  dateFormat: "MM/DD/YYYY",
-};
-
-const currentCompany = "Optimus";
-
-const mergedConfig: Config =
-  currentCompany === "Optimus"
-    ? { ...defaultConfig, ...optimusConfig }
-    : defaultConfig;
+const mergedConfig: Config = defaultConfig;
 
 const ConfigContext = createContext<{
   config: Config;
