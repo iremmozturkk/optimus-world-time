@@ -139,7 +139,7 @@ Please change the parent <Route path="${q}"> to <Route path="${q==="/"?"*":`${q}
 `,ub=ce`
   width: 25px;
   height: 25px;
-`;cu.locale("tr");function ib(){const l=Ns(),{theme:i,toggleTheme:s}=ym(),[c,o]=D.useState(""),{data:d}=Xi({queryKey:["timezones"],queryFn:om}),{data:v}=Xi({queryKey:["time","Europe/Istanbul"],queryFn:()=>hm("Europe/Istanbul"),refetchInterval:1e3});if(!d||!v)return null;const b=d.filter(X=>X.toLowerCase().includes(c.toLowerCase())),m=v.hour,T=cu(`${v.year}-${v.month}-${v.day}`).format("D MMMM, dddd");let _="Merhaba";m>=6&&m<12?_="Günaydın":m>=12&&m<18?_="İyi günler":m>=18&&m<24?_="İyi akşamlar":_="İyi geceler";const H=i==="light"?"./public/moon.png":"./public/sunny.png";return ke("div",{css:I1(i),children:[ke("div",{css:tb(i),children:[Lt("button",{css:eb,onClick:s,children:Lt("img",{src:H,alt:"theme",width:20})}),ke("div",{children:[_,"!"]}),ke("div",{css:{fontSize:"32px",fontWeight:"bold",margin:"8px 0"},children:[String(v.hour).padStart(2,"0"),":",String(v.minute).padStart(2,"0")]}),Lt("div",{children:T})]}),Lt("input",{css:ab,type:"text",placeholder:"Arama",value:c,onChange:X=>o(X.target.value)}),Lt("div",{children:b.map(X=>ke("div",{css:nb(i),onClick:()=>l(`/city/${encodeURIComponent(X)}`),children:[Lt("span",{children:X}),Lt("div",{css:lb(i),children:Lt("img",{src:"./public/arrow.png",alt:"arrow",css:ub})})]},X))})]})}const rb=l=>ce`
+`;cu.locale("tr");function ib(){const l=Ns(),{theme:i,toggleTheme:s}=ym(),[c,o]=D.useState(""),{data:d}=Xi({queryKey:["timezones"],queryFn:om}),{data:v}=Xi({queryKey:["time","Europe/Istanbul"],queryFn:()=>hm("Europe/Istanbul"),refetchInterval:1e3});if(!d||!v)return null;const b=d.filter(X=>X.toLowerCase().includes(c.toLowerCase())),m=v.hour,T=cu(`${v.year}-${v.month}-${v.day}`).format("D MMMM, dddd");let _="Merhaba";m>=6&&m<12?_="Günaydın":m>=12&&m<18?_="İyi günler":m>=18&&m<24?_="İyi akşamlar":_="İyi geceler";const H=i==="light"?"/moon.png":"/sunny.png";return ke("div",{css:I1(i),children:[ke("div",{css:tb(i),children:[Lt("button",{css:eb,onClick:s,children:Lt("img",{src:H,alt:"theme",width:20})}),ke("div",{children:[_,"!"]}),ke("div",{css:{fontSize:"32px",fontWeight:"bold",margin:"8px 0"},children:[String(v.hour).padStart(2,"0"),":",String(v.minute).padStart(2,"0")]}),Lt("div",{children:T})]}),Lt("input",{css:ab,type:"text",placeholder:"Arama",value:c,onChange:X=>o(X.target.value)}),Lt("div",{children:b.map(X=>ke("div",{css:nb(i),onClick:()=>l(`/city/${encodeURIComponent(X)}`),children:[Lt("span",{children:X}),Lt("div",{css:lb(i),children:Lt("img",{src:"/arrow.png",alt:"arrow",css:ub})})]},X))})]})}const rb=l=>ce`
   padding: 16px;
   max-width: 500px;
   margin: 0 auto;
@@ -149,7 +149,7 @@ Please change the parent <Route path="${q}"> to <Route path="${q==="/"?"*":`${q}
   min-height: 100vh;
   text-align: center;
 `,cb=l=>ce`
-  background: url('/src/assets/${l==="dark"?"header_dark.png":"header_light.png"}');
+  background: url('/header_${l==="dark"?"dark":"light"}.png');
   background-size: cover;
   background-position: center;
   color: ${l==="dark"?"white":"black"};
