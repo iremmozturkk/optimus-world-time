@@ -66,6 +66,9 @@ Ardından tarayıcıda [http://localhost:3000](http://localhost:3000) adresinden
 
 ## 📸 Ekran Görüntüleri
 
+### Ana Sayfa
+![Splash Screen ](SplashScreen.png)
+
 ### 🌑 Koyu Tema - Ana Sayfa
 ![Dark Screen 1](Dark_Screen_1.png)
 
@@ -77,7 +80,6 @@ Ardından tarayıcıda [http://localhost:3000](http://localhost:3000) adresinden
 
 ### ☀️ Açık Tema - Ana Sayfa
 ![Light Screen 1](Light_Screen_1.png)
-
 
 
 ### ☀️ Açık Tema - Şehir Saati
