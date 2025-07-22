@@ -30,6 +30,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/city/:zone" element={<CityDetail />} />
+          <Route path="*" element={<div>404 - Sayfa Bulunamadı</div>} />
         </Routes>
       )}
     </ConfigProvider>
