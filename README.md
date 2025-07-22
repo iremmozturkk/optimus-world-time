@@ -1,6 +1,6 @@
 # Optimus World Time
 
-**Optimus World Time**, dünya üzerindeki farklı şehirlerin zaman dilimlerini ve mevcut saatlerini gerçek zamanlı olarak görüntüleyen modern bir web uygulamasıdır. Kullanıcı dostu bir arayüz, canlı saat güncellemeleri, tema değiştirme ve arama özellikleriyle birlikte gelir.
+**Optimus World Time**, dünya üzerindeki farklı şehirlerin zaman dilimlerini ve mevcut saatlerini gerçek zamanlı olarak görüntüleyen bir web uygulamasıdır.
 
 ## 🚀 Özellikler
 
