@@ -33,9 +33,16 @@ export default function Home() {
   const formattedDate = dateObj.format("D MMMM, dddd");
 
   let greeting = "Merhaba";
-  if (hour >= 6 && hour < 12) greeting = "Günaydın";
-  else if (hour >= 12 && hour < 18) greeting = "İyi akşamlar";
-  else greeting = "İyi geceler";
+
+  if (hour >= 6 && hour < 12) {
+    greeting = "Günaydın";
+  } else if (hour >= 12 && hour < 18) {
+    greeting = "İyi günler";
+  } else if (hour >= 18 && hour < 24) {
+    greeting = "İyi akşamlar";
+  } else {
+    greeting = "İyi geceler";
+  }
 
   const iconPath = theme === "light" ? "/src/assets/moon.png" : "/src/assets/sunny.png";
 
@@ -47,10 +54,12 @@ export default function Home() {
         </button>
 
         <div>{greeting}!</div>
+
         <div css={{ fontSize: "32px", fontWeight: "bold", margin: "8px 0" }}>
           {String(currentTime.hour).padStart(2, "0")}:
           {String(currentTime.minute).padStart(2, "0")}
         </div>
+
         <div>{formattedDate}</div>
       </div>
 
