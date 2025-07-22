@@ -27,8 +27,7 @@
 
 ```
 optimus-world-time/
-├── public/
-│   └── index.html
+
 ├── src/
 │   ├── api/                # API istekleri
 │   │   └── timeApi.ts
@@ -42,6 +41,7 @@ optimus-world-time/
 │   ├── main.tsx            # Giriş noktası
 ├── package.json
 └── README.md
+└── index.html
 ```
 
 ## 📦 Kurulum
