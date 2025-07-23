@@ -34,11 +34,11 @@ optimus-world-time/
 │   ├── contexts/           # Tema & ayar yönetimi
 │   ├── pages/              # Sayfalar (Home, CityDetail, SplashScreen)
 │   ├── styles/             # Tema & stil tanımları
+│   ├── utils/              # Yardımcı fonksiyonlar
 │   ├── App.tsx             # Uygulama kök bileşeni
 │   ├── main.tsx            # Giriş noktası
 ├── package.json
 └── README.md
-└── index.html
 ```
 ## 📦 Kurulum
 
