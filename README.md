@@ -26,19 +26,39 @@
 ## 📂 Proje Yapısı
 
 optimus-world-time/
-├── src/
-│   ├── api/                # API istekleri
-│   │   └── timeApi.ts
-│   ├── assets/             # Görseller & ikonlar
-│   ├── components/         # Bileşenler (Clock, ThemeToggle)
-│   ├── contexts/           # Tema & ayar yönetimi
-│   ├── pages/              # Sayfalar (Home, CityDetail, SplashScreen)
-│   ├── styles/             # Tema & stil tanımları
-│   ├── utils/              # Yardımcı fonksiyonlar
-│   ├── App.tsx             # Uygulama kök bileşeni
-│   ├── main.tsx            # Giriş noktası
-├── package.json
-└── README.md
+├── src/                        # Tüm kaynak kod burada
+│
+│   ├── api/                    # API istekleri
+│   │   └── timeApi.ts          # getTime, getTimezones gibi fonksiyonlar
+│
+│   ├── assets/                 # 🖼Görseller & ikonlar
+│   │   ├── arrow.png
+│   │   ├── header_dark.png
+│   │   ├── header_light.png
+│   │   ├── moon.png
+│   │   └── sunny.png
+│
+│   ├── components/            # Küçük UI bileşenleri
+│   │   ├── Clock.tsx
+│   │   └── ThemeToggle.tsx
+│
+│   ├── contexts/              # Context API ile tema & ayar yönetimi
+│   │   └── ConfigContext.tsx
+│
+│   ├── pages/                 # Sayfalar
+│   │   ├── Home.tsx
+│   │   ├── Home.styles.ts     # Emotion ile Home stilleri
+│   │   ├── CityDetail.tsx
+│   │   ├── CityDetail.styles.ts
+│   │   └── SplashScreen.tsx  
+│
+│   ├── styles/                # Ortak tema & stil tanımları 
+│   ├── App.tsx                # Uygulamanın kökü, router, context burada başlar
+│   ├── main.tsx               # Vite + React uygulamasının giriş noktası
+│
+├── package.json               # Bağımlılıklar & komutlar
+├── README.md                  # Proje açıklaması
+
 ```
 ## 📦 Kurulum
 
