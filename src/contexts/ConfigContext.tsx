@@ -34,6 +34,7 @@ const ConfigContext = createContext<{
 });
 
 export const ConfigProvider = ({ children }: { children: React.ReactNode }) => {
+ 
   const [config, setConfig] = useState<Config>(mergedConfig);
 
   useEffect(() => {

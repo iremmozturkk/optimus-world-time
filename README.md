@@ -27,8 +27,6 @@
 
 ```
 optimus-world-time/
-├── public/
-│   └── index.html
 ├── src/
 │   ├── api/                # API istekleri
 │   │   └── timeApi.ts
@@ -37,7 +35,6 @@ optimus-world-time/
 │   ├── contexts/           # Tema & ayar yönetimi
 │   ├── pages/              # Sayfalar (Home, CityDetail, SplashScreen)
 │   ├── styles/             # Tema & stil tanımları
-│   ├── utils/              # Yardımcı fonksiyonlar
 │   ├── App.tsx             # Uygulama kök bileşeni
 │   ├── main.tsx            # Giriş noktası
 ├── package.json
