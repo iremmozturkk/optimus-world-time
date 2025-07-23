@@ -26,10 +26,6 @@
 ## 📂 Proje Yapısı
 
 optimus-world-time/
-<<<<<<< HEAD
-=======
-
->>>>>>> 85c590086f35dc8409b9d774b9c9a7580b90fd5e
 ├── src/
 │   ├── api/                # API istekleri
 │   │   └── timeApi.ts
@@ -44,7 +40,6 @@ optimus-world-time/
 └── README.md
 └── index.html
 ```
-
 ## 📦 Kurulum
 
 ### Gereksinimler
