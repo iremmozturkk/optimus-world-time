@@ -25,7 +25,6 @@
 
 ## 📂 Proje Yapısı
 
-```
 optimus-world-time/
 <<<<<<< HEAD
 =======
