@@ -24,7 +24,7 @@
 - **Vite** — Hızlı geliştirme ve build aracı.
 
 ## 📂 Proje Yapısı
-
+``` 
 optimus-world-time/
 
 ├── src/                        # Tüm kaynak kod burada
@@ -60,8 +60,8 @@ optimus-world-time/
 ├── package.json               # Bağımlılıklar & komutlar
 ├── README.md                  # Proje açıklaması
 
+``` 
 
-```
 ## 📦 Kurulum
 
 ### Gereksinimler
