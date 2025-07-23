@@ -27,18 +27,19 @@
 
 optimus-world-time/
 ├── src/
-│   ├── api/                # API istekleri
-│   │   └── timeApi.ts
-│   ├── assets/             # Görseller & ikonlar
-│   ├── components/         # Bileşenler (Clock, ThemeToggle)
-│   ├── contexts/           # Tema & ayar yönetimi
-│   ├── pages/              # Sayfalar (Home, CityDetail, SplashScreen)
-│   ├── styles/             # Tema & stil tanımları
-│   ├── App.tsx             # Uygulama kök bileşeni
-│   ├── main.tsx            # Giriş noktası
-├── package.json
-└── README.md
-└── index.html
+│ ├── api/ # API istekleri
+│ │ └── timeApi.ts
+│ ├── assets/ # Görseller & ikonlar
+│ ├── components/ # Küçük UI bileşenleri
+│ ├── contexts/ # Tema & ayar yönetimi
+│ ├── pages/ # Sayfalar
+│ ├── styles/ # Ortak stiller
+│ ├── utils/ # Yardımcı fonksiyonlar
+│ ├── App.tsx # Uygulamanın kökü
+│ └── main.tsx # Giriş noktası
+├── package.json # Bağımlılıklar
+├── README.md # Proje açıklaması
+
 ```
 ## 📦 Kurulum
 
