@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import CityDetail from "./pages/CityDetail";
-import { ConfigProvider } from "./contexts/ConfigContext";
+import { ConfigProvider } from "./contexts/configProvider";
 import SplashScreen from "./pages/SplashScreen";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";

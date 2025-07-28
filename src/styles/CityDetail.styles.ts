@@ -13,7 +13,7 @@ export const container = (theme: string) => css`
 
 export const header = (theme: string) => css`
   background: url('/src/assets/${
-    theme === "dark" ? "header_dark.png" : "header_light.png"
+    theme === "dark" ? "../assets/header_dark.png" : "header_light.png"
   }');
   background-size: cover;
   background-position: center;

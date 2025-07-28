@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getTimezones, getTime } from "../api/timeApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useConfig } from "../contexts/ConfigContext";
+import { useConfig } from "../contexts/configProvider";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/Home.styles";
