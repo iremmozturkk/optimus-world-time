@@ -1,7 +1,4 @@
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import headerDark from "../assets/header_dark.png";
-import headerLight from "../assets/header_light.png";
 
 export const container = (theme: string) => css`
   padding: 16px;
@@ -9,13 +6,15 @@ export const container = (theme: string) => css`
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;
   color: ${theme === "dark" ? "white" : "black"};
-  background-color: ${theme === "dark" ? "#002359" : "#fff"};
+  background-color: ${theme === "dark" ? "#002359" : "#ffffffff"};
   min-height: 100vh;
   text-align: center;
 `;
 
 export const header = (theme: string) => css`
-  background: url(${theme === "dark" ? headerDark : headerLight});
+  background: url('/src/assets/${
+    theme === "dark" ? "header_dark.png" : "header_light.png"
+  }');
   background-size: cover;
   background-position: center;
   color: ${theme === "dark" ? "white" : "black"};
@@ -67,6 +66,8 @@ export const timeBox = (theme: string) => css`
   color: ${theme === "dark" ? "#fff" : "#000"};
 `;
 
+
+
 export const colon = css`
   font-size: 100px;
   font-weight: bold;
@@ -78,6 +79,7 @@ export const infoWrapper = css`
     font-size: 30px;
     font-weight: 500;
   }
+
   p {
     margin: 10px 0;
   }
