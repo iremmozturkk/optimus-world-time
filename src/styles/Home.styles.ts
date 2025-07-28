@@ -1,13 +1,17 @@
 import { css } from "@emotion/react";
 
 export const container = (theme: string) => css`
-  padding: 16px;
-  max-width: 500px;
+  padding: 2%;
+  max-width: 100%;
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;
   color: ${theme === "dark" ? "white" : "black"};
   background-color: ${theme === "dark" ? "#002359" : "#f5f5f5"};
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 4%;
+  }
 `;
 
 export const header = (theme: string) => css`
@@ -15,12 +19,16 @@ export const header = (theme: string) => css`
   background-size: cover;
   background-position: center;
   color: ${theme === "dark" ? "white" : "black"};
-  padding: 40px 16px 32px 16px;
+  padding: 5% 3%;
   text-align: left;
   position: relative;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   margin: -16px -16px 16px -16px;
+
+  h2 {
+    font-size: clamp(18px, 5vw, 28px);
+  }
 `;
 
 export const toggleBtn = css`
@@ -30,8 +38,8 @@ export const toggleBtn = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: clamp(30px, 8vw, 40px);
+  height: clamp(30px, 8vw, 40px);
   border-radius: 50%;
   background-color: #ffffffff;
   box-shadow: 0 0 4px #00000033;
@@ -41,7 +49,7 @@ export const toggleBtn = css`
 
 export const searchStyle = css`
   width: 90%;
-  margin: 16px 0;
+  margin: 16px auto;
   padding: 8px 8px 8px 36px;
   border-radius: 16px;
   border: 1px solid #ccc;
@@ -50,6 +58,10 @@ export const searchStyle = css`
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 16px;
+
+  @media (max-width: 500px) {
+    width: 95%;
+  }
 `;
 
 export const listItemStyle = (theme: string) => css`
@@ -62,9 +74,11 @@ export const listItemStyle = (theme: string) => css`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: calc(90% - 40px);
+  width: 90%;
   min-height: 60px;
   overflow: visible; 
+  font-size: clamp(14px, 3vw, 18px);
+
   &:hover {
     background-color: ${theme === "dark" ? "#293A89" : "#D4DEF1"};
   }
@@ -75,8 +89,8 @@ export const arrowWrapper = (theme: string) => css`
   top: 50%;
   right: -20px;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: clamp(30px, 6vw, 40px);
+  height: clamp(30px, 6vw, 40px);
   background: url('/src/assets/${
     theme === "dark" ? "arrow_background_dark.png" : "arrow_background_light.png"
   }') no-repeat center/cover;
@@ -86,14 +100,13 @@ export const arrowWrapper = (theme: string) => css`
   align-items: center;
 `;
 
-
 export const arrowCircle = (theme: string) => css`
   position: absolute;
   top: 50%;
   right: -20px;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: clamp(35px, 7vw, 50px);
+  height: clamp(35px, 7vw, 50px);
   background: url('/src/assets/${
     theme === "dark" ? "arrow_background.png" : "arrow_background_light.png"
   }') no-repeat center/cover;
@@ -104,6 +117,6 @@ export const arrowCircle = (theme: string) => css`
 `;
 
 export const arrowIcon = css`
-  width: 25px;
-  height: 25px;
+  width: clamp(15px, 4vw, 25px);
+  height: clamp(15px, 4vw, 25px);
 `;

@@ -7,6 +7,8 @@ import { useConfig } from "../contexts/configProvider";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/Home.styles";
+import ErrorBanner from "../components/ErrorBanner";
+import SplashScreen from "../pages/SplashScreen"; // ✅ SplashScreen eklendi
 
 dayjs.locale("tr");
 
@@ -15,14 +17,26 @@ export default function Home() {
   const { theme, toggleTheme } = useConfig();
   const [search, setSearch] = useState("");
 
-  const { data: timezones } = useQuery({ queryKey: ["timezones"], queryFn: getTimezones });
+  // ✅ API'den zaman dilimleri çekiliyor
+  const { data: timezones, isLoading, isError } = useQuery({
+    queryKey: ["timezones"],
+    queryFn: getTimezones,
+  });
+
+  // ✅ İstanbul saati sürekli güncelleniyor
   const { data: currentTime } = useQuery({
     queryKey: ["time", "Europe/Istanbul"],
     queryFn: () => getTime("Europe/Istanbul"),
     refetchInterval: 1000,
   });
 
-  if (!timezones || !currentTime) return null;
+  // ✅ Veri yüklenirken SplashScreen göster
+  if (isLoading || !currentTime) return <SplashScreen />;
+
+  // ✅ Hata durumunda hata bannerı
+  if (isError) return <ErrorBanner message="Zaman dilimleri alınamadı. İnternet bağlantınızı kontrol edin." />;
+
+  if (!timezones) return null;
 
   const filteredZones = timezones.filter((zone: string) =>
     zone.toLowerCase().includes(search.toLowerCase())
@@ -33,16 +47,10 @@ export default function Home() {
   const formattedDate = dateObj.format("D MMMM, dddd");
 
   let greeting = "Merhaba";
-
-  if (hour >= 6 && hour < 12) {
-    greeting = "Günaydın";
-  } else if (hour >= 12 && hour < 18) {
-    greeting = "İyi günler";
-  } else if (hour >= 18 && hour < 24) {
-    greeting = "İyi akşamlar";
-  } else {
-    greeting = "İyi geceler";
-  }
+  if (hour >= 6 && hour < 12) greeting = "Günaydın";
+  else if (hour >= 12 && hour < 18) greeting = "İyi günler";
+  else if (hour >= 18 && hour < 24) greeting = "İyi akşamlar";
+  else greeting = "İyi geceler";
 
   const iconPath = theme === "light" ? "/src/assets/moon.png" : "/src/assets/sunny.png";
 
@@ -56,8 +64,7 @@ export default function Home() {
         <div>{greeting}!</div>
 
         <div css={{ fontSize: "32px", fontWeight: "bold", margin: "8px 0" }}>
-          {String(currentTime.hour).padStart(2, "0")}:
-          {String(currentTime.minute).padStart(2, "0")}
+          {String(currentTime.hour).padStart(2, "0")}:{String(currentTime.minute).padStart(2, "0")}
         </div>
 
         <div>{formattedDate}</div>

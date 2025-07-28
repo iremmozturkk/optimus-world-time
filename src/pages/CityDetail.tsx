@@ -6,6 +6,8 @@ import { useConfig } from "../contexts/configProvider";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/CityDetail.styles";
+import ErrorBanner from "../components/ErrorBanner";
+import SplashScreen from "../pages/SplashScreen"; // ✅ SplashScreen eklendi
 
 dayjs.locale("tr");
 
@@ -14,18 +16,22 @@ export default function CityDetail() {
   const navigate = useNavigate();
   const { theme } = useConfig();
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["cityTime", zone],
     queryFn: () => getTime(zone || ""),
     refetchInterval: 1000,
   });
 
-  if (isLoading) return <div>Yükleniyor...</div>;
-  if (error || !data) return <div>Hata oluştu!</div>;
+  // ✅ SplashScreen veri yüklenirken gösteriliyor
+  if (isLoading) return <SplashScreen />;
+
+  // ✅ Hata ve veri bulunamama durumları
+  if (isError) return <ErrorBanner message="Zaman bilgisi alınamadı. Lütfen daha sonra tekrar deneyin." />;
+  if (!data) return <ErrorBanner message="Veri bulunamadı." />;
 
   const dateObj = dayjs(`${data.year}-${data.month}-${data.day}`);
-  const dayOfWeek = dateObj.format("dddd"); 
-  const utcOffset = dayjs().format("Z"); 
+  const dayOfWeek = dateObj.format("dddd");
+  const utcOffset = dayjs().format("Z");
 
   return (
     <div css={styles.container(theme)}>
