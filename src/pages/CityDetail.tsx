@@ -1,48 +1,34 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import searchIcon from "../assets/search_icon.png";
-import arrowDark from "../assets/arrow_background_dark.png";
-import arrowLight from "../assets/arrow_background_light.png";
-import headerDark from "../assets/header_dark.png";
-import headerLight from "../assets/header_light.png";
+import { useParams, useNavigate } from "react-router-dom";
+import { useConfig } from "../contexts/configProvider";
+import * as styles from "../styles/CityDetail.styles";   
+import { searchStyle } from "../styles/Home.styles";     
 
-export const container = (theme: string) => css`
-  padding: 16px;
-  max-width: 500px;
-  margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
-  color: ${theme === "dark" ? "white" : "black"};
-  background-color: ${theme === "dark" ? "#002359" : "#f5f5f5"};
-  min-height: 100vh;
-`;
+const CityDetail = () => {
+  const { theme } = useConfig();
+  const navigate = useNavigate();
+  const { zone } = useParams<{ zone: string }>();
 
-export const header = (theme: string) => css`
-  background: url(${theme === "dark" ? headerDark : headerLight});
-  background-size: cover;
-  background-position: center;
-  color: ${theme === "dark" ? "white" : "black"};
-  padding: 40px 16px 32px 16px;
-  text-align: left;
-  position: relative;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-  margin: -16px -16px 16px -16px;
-`;
+  return (
+    <div css={styles.container(theme)}>
+      <div css={styles.header(theme)}>
+        {/* Geri butonu stilli */}
+        <button onClick={() => navigate(-1)} css={styles.backBtn}>
+          ←
+        </button>
+        <h2>City Detail: {zone}</h2>
+      </div>
 
-export const searchStyle = css`
-  width: 90%;
-  margin: 16px 0;
-  padding: 8px 8px 8px 36px;
-  border-radius: 16px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  background-image: url(${searchIcon});
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 16px;
-`;
+      {/* Arama kutusu Home.styles'teki searchStyle ile */}
+      <input type="text" placeholder="Ara..." css={searchStyle} />
 
-export const arrowWrapper = (theme: string) => css`
-  background: url(${theme === "dark" ? arrowDark : arrowLight}) no-repeat center/cover;
-  /* diğer stiller */
-`;
+      {/* Şehir ile ilgili bilgiler buraya eklenebilir */}
+      <div css={styles.infoWrapper}>
+        <h3>{zone?.split("/")[1]}</h3>
+        <p>{zone?.split("/")[0]}</p>
+      </div>
+    </div>
+  );
+};
+
+export default CityDetail;

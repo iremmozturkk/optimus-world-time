@@ -3,7 +3,7 @@
 import { useContext, useState, useEffect } from "react";
 import type { Config, Theme } from "../config/configDefaults";
 import { defaultConfig } from "../config/configDefaults";
-import { ConfigContext } from "./ConfigContext";
+import { ConfigContext } from "./configContext";
 
 export const ConfigProvider = ({ children }: { children: React.ReactNode }) => {
   const [config, setConfig] = useState<Config>(defaultConfig);
