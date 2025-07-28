@@ -128,18 +128,18 @@ Yanıt Örneği:
 ### Home
 - Ana sayfa: zaman dilimlerini gösterir.
 ### 🌑 Koyu Tema - Ana Sayfa
-![Dark Screen 1](src\assets\darkScreen1.png)
+![Dark Screen 1](./src/assets/darkScreen1.png)
 
 ### ☀️ Açık Tema - Ana Sayfa
-![Light Screen 1](src\assets\lightScreen1.png)
+![Light Screen 1](./src/assets/lightScreen1.png)
 
 ### CityDetail
 - Seçilen şehir hakkında detaylı bilgi.
 ### ☀️ Açık Tema - Şehir Saati
-![Light Screen 2](src\assets\lightScreen2.png)
+![Light Screen 2](./src/assets/lightScreen2.png)
 
 ### 🌑 Koyu Tema - Şehir Saati
-![Dark Screen 2](src\assets\darkScreen2.png)
+![Dark Screen 2](./src/assets/darkScreen2.png)
 
 
 
