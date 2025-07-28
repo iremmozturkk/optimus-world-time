@@ -115,7 +115,7 @@ Yanıt Örneği:
 
 ### SplashScreen
 - Açılış yükleme ekranı.
-![Splash Screen ](SplashScreen.png)
+![Splash Screen ](splashScreen.png)
 
 ### Clock
 - Mevcut saati gösterir.
@@ -128,18 +128,18 @@ Yanıt Örneği:
 ### Home
 - Ana sayfa: zaman dilimlerini gösterir.
 ### 🌑 Koyu Tema - Ana Sayfa
-![Dark Screen 1](Dark_Screen_1.png)
+![Dark Screen 1](darkScreen1.png)
 
 ### ☀️ Açık Tema - Ana Sayfa
-![Light Screen 1](Light_Screen_1.png)
+![Light Screen 1](lightScreen1.png)
 
 ### CityDetail
 - Seçilen şehir hakkında detaylı bilgi.
 ### ☀️ Açık Tema - Şehir Saati
-![Light Screen 2](Light_Screen_2.png)
+![Light Screen 2](lightScreen2.png)
 
 ### 🌑 Koyu Tema - Şehir Saati
-![Dark Screen 2](Dark_Screen_2.png)
+![Dark Screen 2](darkScreen2.png)
 
 
 

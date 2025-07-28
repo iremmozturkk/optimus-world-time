@@ -5,7 +5,7 @@ import { getTime } from "../api/timeApi";
 import { useConfig } from "../contexts/ConfigContext";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
-import * as styles from "./CityDetail.styles";
+import * as styles from "../styles/CityDetail.styles";
 
 dayjs.locale("tr");
 

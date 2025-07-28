@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useConfig } from "../contexts/ConfigContext";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
-import * as styles from "./Home.styles";
+import * as styles from "../styles/Home.styles";
 
 dayjs.locale("tr");
 
