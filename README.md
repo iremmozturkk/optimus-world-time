@@ -115,7 +115,7 @@ Yanıt Örneği:
 
 ### SplashScreen
 - Açılış yükleme ekranı.
-![Splash Screen ](src\assets\splashScreen.png)
+![Splash Screen ](./src/assets/splashScreen.png)
 
 ### Clock
 - Mevcut saati gösterir.
