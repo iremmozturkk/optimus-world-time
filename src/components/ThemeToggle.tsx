@@ -14,7 +14,6 @@ const ThemeToggle = () => {
     setTheme(next);
   };
 
-  // JSX: Buton döndür, tıklanınca toggle fonksiyonunu çağır
   return (
     <button onClick={toggle}>
       Switch to {config.theme === "light" ? "dark" : "light"} theme 
