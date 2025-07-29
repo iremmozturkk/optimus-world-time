@@ -2,7 +2,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getTime } from "../api/timeApi";
-import { useConfig } from "../contexts/configProvider";
+import { useConfig } from "../contexts/useConfig";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/CityDetail.styles";

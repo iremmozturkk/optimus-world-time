@@ -8,8 +8,8 @@ export const ConfigContext = createContext<{
   toggleTheme: () => void;
   theme: Theme;
 }>({
-  config: defaultConfig,    // Varsayılan ayar
-  setTheme: () => {},       // Provider yokken boş fonksiyon
+  config: defaultConfig,  
+  setTheme: () => {},       
   toggleTheme: () => {},
   theme: defaultConfig.theme,
 });
