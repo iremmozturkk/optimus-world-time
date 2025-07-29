@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
+//banner stil
 const bannerStyle = css`
   background-color: #ffdddd;
   color: #900;
@@ -12,10 +13,11 @@ const bannerStyle = css`
   max-width: 400px;
   font-size: 16px;
 `;
-
+//props tipi
 type ErrorBannerProps = {
   message: string;
 };
+//Error message'ını kutu içinde gösterecek component 
 
 const ErrorBanner = ({ message }: ErrorBannerProps) => {
   return <div css={bannerStyle}>❌ {message}</div>;

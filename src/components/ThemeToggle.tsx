@@ -1,5 +1,5 @@
 
-import { useConfig } from "../contexts/configProvider";
+import { useConfig } from "../contexts/useConfig";
 
 // ThemeToggle adında fonksiyonel bir bileşen tanımla
 const ThemeToggle = () => {

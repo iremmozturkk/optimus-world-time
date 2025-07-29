@@ -2,6 +2,7 @@ import { createContext } from "react";
 import type { Config, Theme } from "../config/configDefaults";
 import { defaultConfig } from "../config/configDefaults";
 
+//ConfigContext oluşturuluyor
 export const ConfigContext = createContext<{
   config: Config;
   setTheme: (theme: Theme) => void;

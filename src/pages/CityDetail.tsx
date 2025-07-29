@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/CityDetail.styles";
 import ErrorBanner from "../components/ErrorBanner";
-import SplashScreen from "../pages/SplashScreen"; // ✅ SplashScreen eklendi
+import SplashScreen from "../pages/SplashScreen"; 
 
 dayjs.locale("tr");
 
