@@ -120,3 +120,32 @@ export const arrowIcon = css`
   width: clamp(15px, 4vw, 25px);
   height: clamp(15px, 4vw, 25px);
 `;
+// ✅ Saat yazısı
+export const clockText = css`
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  font-weight: bold;
+`;
+
+// ✅ Pagination Container
+export const paginationContainer = css`
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+`;
+
+export const paginationBtn = (active: boolean) => css`
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: ${active ? "#4a90e2" : "#fff"};
+  color: ${active ? "#fff" : "#333"};
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${active ? "#357abd" : "#f5f5f5"};
+  }
+`;
+

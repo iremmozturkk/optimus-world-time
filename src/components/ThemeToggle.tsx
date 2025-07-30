@@ -1,12 +1,12 @@
 
-import { useConfig } from "../contexts/useConfig";
+import { useConfig } from "../hooks/useConfig";
 
-// ThemeToggle adında fonksiyonel bir bileşen tanımla
+// ThemeToggle adında fonksiyonel bir bileşen tanımladım
 const ThemeToggle = () => {
-  // useConfig hook'u ile mevcut config ve setTheme fonksiyonunu al
+  // useConfig hook'u ile mevcut config ve setTheme fonksiyonunu aldım
   const { config, setTheme } = useConfig();
 
-  // Tema değiştirmek için bir fonksiyon tanımla
+  // Tema değiştirmek için bir fonksiyon tanımladım
   const toggle = () => {
     // Mevcut tema light ise dark yap, değilse light yap
     const next = config.theme === "light" ? "dark" : "light";
@@ -21,5 +21,4 @@ const ThemeToggle = () => {
   );
 };
 
-// Bileşeni dışa aktarılır
 export default ThemeToggle;

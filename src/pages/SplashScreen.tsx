@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from "@emotion/react";
-
-// 🔹 Logo yukarı-aşağı hareket animasyonu
+//  Logo yukarı-aşağı hareket animasyonu
 const float = keyframes`
   0% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -16,9 +15,9 @@ const splashStyle = css`
   align-items: center;
 `;
 
-// 🔹 Logo stiline animasyon eklendi
+// Logo stiline animasyon eklendi
 const logoStyle = css`
-  width: 200px;
+  width: 250px;
   animation: ${float} 2.5s ease-in-out infinite;
 `;
 

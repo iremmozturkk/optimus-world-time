@@ -1,6 +1,6 @@
 import React from "react";
 
-//  props'ların tipi
+//  props'ların tipi tanımlandı
 interface ClockProps {
   hour: number;     
   minute: number;   
