@@ -37,7 +37,7 @@ export default function Home() {
   const [timezones, setTimezones] = useState<string[]>([]);
   const [currentTime, setCurrentTime] = useState<any>(null);
 
-  // ✅ API çağrıları manuel yapılıyor
+  // API çağrıları manuel yapılıyor
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,7 +55,7 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // ✅ İnternet offline
+  // İnternet offline
   if (!navigator.onLine) {
     return (
       <ErrorBanner
@@ -66,7 +66,7 @@ export default function Home() {
     );
   }
 
-  // ✅ Hata varsa ErrorBanner’ı ZORLA göster
+  // Hata varsa ErrorBanner’ı ZORLA göster
   if (error) {
     const isDNS = error.toLowerCase().includes("dns") || error.toLowerCase().includes("failed to fetch") || error.toLowerCase().includes("err_name_not_resolved");
     return (
@@ -79,10 +79,10 @@ export default function Home() {
     );
   }
 
-  // ✅ Yükleniyor
+  // Yükleniyor
   if (loading) return <SplashScreen />;
 
-  // ✅ Veri yoksa
+  // Veri yoksa
   if (!timezones.length || !currentTime) {
     return (
       <ErrorBanner
@@ -93,7 +93,7 @@ export default function Home() {
     );
   }
 
-  // ✅ Normal UI
+  // Normal UI
   const dateObj = dayjs(`${currentTime.year}-${currentTime.month}-${currentTime.day}`);
   const formattedDate = dateObj.format("D MMMM, dddd");
   const greeting = getGreeting(currentTime.hour);

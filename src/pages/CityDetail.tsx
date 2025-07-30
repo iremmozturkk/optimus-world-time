@@ -30,7 +30,7 @@ if (!isOnline) {
     refetchInterval: 1000,
   });
 
-  // ✅ Hata & Yüklenme Kontrolleri
+  // Hata & Yüklenme Kontrolleri
   if (isLoading) return <SplashScreen />;
   if (isError) return <ErrorBanner type="api" error={error} onRetry={() => window.location.reload()} />;
   if (!data) return <ErrorBanner type="unknown" message="Veri bulunamadı." />;

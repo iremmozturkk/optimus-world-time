@@ -15,7 +15,6 @@ const splashStyle = css`
   align-items: center;
 `;
 
-// Logo stiline animasyon eklendi
 const logoStyle = css`
   width: 250px;
   animation: ${float} 2.5s ease-in-out infinite;
