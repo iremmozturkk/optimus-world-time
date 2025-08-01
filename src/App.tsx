@@ -9,7 +9,6 @@ import { getTimezones } from "./api/timeApi";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
-//showSplash:  İlk 1 saniye SplashScreen gösterilmesi için kullanılan state.
 
   const { isLoading } = useQuery({
     queryKey: ["timezones"],
@@ -17,7 +16,6 @@ export default function App() {
     select: (res)=>  res[0],
     staleTime: Infinity
   });
-
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 1000); 

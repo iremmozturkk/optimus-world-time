@@ -21,6 +21,7 @@ const errorDetail = css`
   padding: 8px;
   border-radius: 6px;
   white-space: pre-wrap;
+  word-break: break-word;
 `;
 
 const retryBtn = css`
@@ -47,27 +48,47 @@ export type ErrorBannerProps = {
 const messages = {
   network: "🌐 Ağ veya DNS hatası",
   api: "⚠️ API isteği başarısız oldu",
-  unknown: "❗ Beklenmeyen bir hata oluştu"
+  unknown: "❗ Beklenmeyen bir hata oluştu",
 };
 
-const ErrorBanner: React.FC<ErrorBannerProps> = ({ type = "unknown", message, error, onRetry }) => {
+const ErrorBanner: React.FC<ErrorBannerProps> = ({
+  type = "unknown",
+  message,
+  error,
+  onRetry,
+}) => {
+  // ✅ Hata mesajını her durumda string’e çeviriyoruz
   const errorMsg =
     error instanceof Error
       ? error.message
       : typeof error === "string"
       ? error
-      : JSON.stringify(error, null, 2);
+      : error
+      ? JSON.stringify(error, null, 2)
+      : "Bilinmeyen bir hata oluştu";
 
+  // ✅ DNS / ağ hatasını algılama
   const isDNSIssue =
-    errorMsg?.toLowerCase().includes("failed to fetch") ||
-    errorMsg?.toLowerCase().includes("err_name_not_resolved");
+    errorMsg.toLowerCase().includes("failed to fetch") ||
+    errorMsg.toLowerCase().includes("err_name_not_resolved");
 
   return (
     <div css={bannerStyle}>
+      {/* Başlık */}
       <h3>{isDNSIssue ? "🌐 DNS / Ağ Bağlantı Hatası" : messages[type]}</h3>
-      {message && <p>{message}</p>}
-      {errorMsg && <pre css={errorDetail}>{errorMsg}</pre>}
-      {onRetry && <button css={retryBtn} onClick={onRetry}>🔄 Tekrar Dene</button>}
+
+      {/* Açıklama */}
+      <p>{message || "Bir sorun oluştu. Lütfen tekrar deneyin."}</p>
+
+      {/* Hata Detayları */}
+      <pre css={errorDetail}>{errorMsg}</pre>
+
+      {/* Retry Butonu */}
+      {onRetry && (
+        <button css={retryBtn} onClick={onRetry}>
+          🔄 Tekrar Dene
+        </button>
+      )}
     </div>
   );
 };
