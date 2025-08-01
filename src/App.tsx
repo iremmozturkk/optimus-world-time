@@ -9,18 +9,22 @@ import { getTimezones } from "./api/timeApi";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
+//showSplash:  İlk 1 saniye SplashScreen gösterilmesi için kullanılan state.
 
-  const { isLoading: tzLoading } = useQuery({
+  const { isLoading } = useQuery({
     queryKey: ["timezones"],
     queryFn: getTimezones,
+    select: (res)=>  res[0],
+    staleTime: Infinity
   });
 
+
   useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 2000); // 300ms hızlı açılır
+    const timer = setTimeout(() => setShowSplash(false), 1000); 
     return () => clearTimeout(timer);
   }, []);
 
-  const stillLoading = showSplash || tzLoading;
+  const stillLoading = showSplash || isLoading; //Veri yüklenene kadar splashScreen kalsın
 
   return (
     <ConfigProvider>

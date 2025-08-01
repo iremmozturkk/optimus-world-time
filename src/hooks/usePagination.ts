@@ -1,17 +1,26 @@
-// src/hooks/usePagination.ts
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 
-export const usePagination = (itemsPerPage: number) => {
+export function usePagination<T>(itemsPerPage: number, data: T[]) {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const paginate = <T,>(data: T[]): T[] => {
+   // Sayfa değiştirme fonksiyonu
+  const goToPage = useCallback((page: number) => {
+    const maxPage = Math.ceil(data.length / itemsPerPage) || 1;
+    if (page < 1) page = 1;
+    if (page > maxPage) page = maxPage;
+    setCurrentPage(page);
+  }, [data.length, itemsPerPage]);
+
+  // Toplam sayfa sayısı 
+  const totalPages = useMemo(() => {
+    return Math.ceil(data.length / itemsPerPage) || 1;
+  }, [data.length, itemsPerPage]);
+
+  
+  const paginatedData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    return data.slice(start, end);
-  };
+    return data.slice(start, start + itemsPerPage);
+  }, [data, currentPage, itemsPerPage]);
 
-  const totalPages = (dataLength: number) =>
-    Math.ceil(dataLength / itemsPerPage);
-
-  return { currentPage, setCurrentPage, paginate, totalPages };
-};
+  return { currentPage, goToPage, totalPages, paginatedData };
+}

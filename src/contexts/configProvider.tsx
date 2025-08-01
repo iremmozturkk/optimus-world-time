@@ -25,6 +25,8 @@ export const ConfigProvider = ({ children }: { children: React.ReactNode }) => {
     setTheme(newTheme);
   };
 
+  // Provider value sunda değişkenleri memoize edelim - internetten react context ve usememo
+
   return (
     <ConfigContext.Provider value={{ config, setTheme, toggleTheme, theme: config.theme }}>
       {children}

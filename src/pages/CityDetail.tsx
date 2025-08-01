@@ -1,62 +1,78 @@
 /** @jsxImportSource @emotion/react */
 import { useParams, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getTime } from "../api/timeApi";
 import { useConfig } from "../hooks/useConfig";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
 import * as styles from "../styles/CityDetail.styles";
 import ErrorBanner from "../components/ErrorBanner";
 import SplashScreen from "../pages/SplashScreen";
+import { useFetchWorldTime } from "../hooks/useFetchWorldTime";
 
-import { useNetworkStatus } from "../hooks/useNetworkStatus";
 dayjs.locale("tr");
-
-
 
 export default function CityDetail() {
   const { zone } = useParams<{ zone: string }>();
   const navigate = useNavigate();
   const { theme } = useConfig();
 
-const isOnline = useNetworkStatus();
-if (!isOnline) {
-  return <ErrorBanner type="network" message="İnternet bağlantınız kesildi." onRetry={() => window.location.reload()} />;
-}
-  // ✅ API Çağrısı
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["cityTime", zone],
-    queryFn: () => getTime(zone || ""),
-    refetchInterval: 1000,
-  });
+  // CityTime verisi custom hook ile
+  const { currentTime: cityTime, loading, error, refetch } = useFetchWorldTime(zone);
 
-  // Hata & Yüklenme Kontrolleri
-  if (isLoading) return <SplashScreen />;
-  if (isError) return <ErrorBanner type="api" error={error} onRetry={() => window.location.reload()} />;
-  if (!data) return <ErrorBanner type="unknown" message="Veri bulunamadı." />;
+  //  Yüklenme durumu
+  if (loading) return <SplashScreen />;
 
-  const dateObj = dayjs(`${data.year}-${data.month}-${data.day}`);
+  //  Hata durumu
+  if (error) {
+    return (
+      <ErrorBanner
+        type="api"
+        message="⚠️ API isteği başarısız oldu."
+        error={error}
+        onRetry={refetch}
+      />
+    );
+  }
+
+  //  Veri yoksa
+  if (!cityTime) {
+    return (
+      <ErrorBanner
+        type="unknown"
+        message="Veri bulunamadı."
+        onRetry={refetch}
+      />
+    );
+  }
+
+  //  Tarih Formatlama
+  const dateObj = dayjs(`${cityTime.year}-${String(cityTime.month).padStart(2, "0")}-${String(cityTime.day).padStart(2, "0")}`);
   const dayOfWeek = dateObj.format("dddd");
   const utcOffset = dayjs().format("Z");
 
+  //  Zone güvenli parçalama
+  const [countryName, cityName] = (zone || "Unknown/Unknown").split("/");
+
   return (
     <div css={styles.container(theme)}>
+      {/* Header */}
       <div css={styles.header(theme)}>
         <button onClick={() => navigate(-1)} css={styles.backBtn}>←</button>
         <h2>WORLD TIME</h2>
       </div>
 
+      {/* Saat Gösterimi */}
       <div css={styles.timeWrapper}>
-        <div css={styles.timeBox(theme)}>{String(data.hour).padStart(2, "0")}</div>
+        <div css={styles.timeBox(theme)}>{String(cityTime.hour).padStart(2, "0")}</div>
         <div css={styles.colon}>:</div>
-        <div css={styles.timeBox(theme)}>{String(data.minute).padStart(2, "0")}</div>
+        <div css={styles.timeBox(theme)}>{String(cityTime.minute).padStart(2, "0")}</div>
       </div>
 
+      {/* Şehir Bilgileri */}
       <div css={styles.infoWrapper}>
-        <h3>{zone?.split("/")[1]}</h3>
-        <p>{zone?.split("/")[0]}</p>
+        <h3>{cityName}</h3>
+        <p>{countryName}</p>
         <p>{dayOfWeek}, GMT {utcOffset}</p>
-        <p>{data.date}</p>
+        <p>{cityTime.date || dateObj.format("YYYY-MM-DD")}</p>
       </div>
     </div>
   );

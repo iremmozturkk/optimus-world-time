@@ -1,29 +1,22 @@
-  //https://wrongurl.test/api
-  //https://timeapi.io/api/TimeZone/AvailableTimeZones
- 
-// Zaman dilimleri API'si
+const URL = "https://timeapi.io/api";
+
+async function fetchApi<T>(endpoint: string): Promise<T> {
+  try {
+    const res = await fetch(`${URL}${endpoint}`);
+    if (!res.ok) {
+      throw new Error(`API Hatası (${res.status}): ${res.statusText}`);
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("❌ API Çağrısı Hatası:", err);
+    throw new Error(`Ağ veya API Hatası: ${(err as Error).message}`);
+  }
+}
+
 export async function getTimezones(): Promise<string[]> {
-  try {
-    const res = await fetch("https://timeapi.io/api/TimeZone/AvailableTimeZones");
-    if (!res.ok) {
-      throw new Error(`API Hatası (${res.status}): ${res.statusText}`);
-    }
-    return res.json();
-  } catch (err) {
-    throw new Error(`Ağ veya API Hatası: ${(err as Error).message}`);
-  }
+  return await fetchApi<string[]>("/TimeZone/AvailableTimeZones");
 }
 
-// Belirli zaman dilimi API'si
 export async function getTime(timezone: string): Promise<any> {
-  try {
-    const res = await fetch(`https://timeapi.io/api/Time/current/zone?timeZone=${timezone}`);
-    if (!res.ok) {
-      throw new Error(`API Hatası (${res.status}): ${res.statusText}`);
-    }
-    return res.json();
-  } catch (err) {
-    throw new Error(`Ağ veya API Hatası: ${(err as Error).message}`);
-  }
+  return await fetchApi<any>(`/Time/current/zone?timeZone=${timezone}`);
 }
-

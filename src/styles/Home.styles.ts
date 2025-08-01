@@ -120,13 +120,13 @@ export const arrowIcon = css`
   width: clamp(15px, 4vw, 25px);
   height: clamp(15px, 4vw, 25px);
 `;
-// Saat yazısı
+
 export const clockText = css`
   font-size: clamp(1.5rem, 2vw, 2.2rem);
   font-weight: bold;
 `;
 
-// Pagination Container
+
 export const paginationContainer = css`
   display: flex;
   justify-content: center;
