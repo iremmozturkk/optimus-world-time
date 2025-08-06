@@ -2,11 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { getTimezones, getTime } from "../api/timeApi";
 import { useState, useEffect } from "react";
 
-export function useFetchWorldTime(zone: string) {
+export function useFetchWorldTime(zone?: string) {
 
   const [timezones, setTimezones] = useState<string[]>([]);
   const [currentTime, setCurrentTime] = useState<any>(null);
-
   const { data, isLoading, isError, error, refetch } = useQuery({
 
     queryKey: ["worldTimeData", zone],

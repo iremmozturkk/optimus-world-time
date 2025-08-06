@@ -18,9 +18,10 @@ export function usePagination<T>(itemsPerPage: number, data: T[]) {
   const totalPages = useMemo(() => {
 
     return Math.ceil(data.length / itemsPerPage) || 1;
-  }, [data.length, itemsPerPage]);
-
+  }, [data.length, itemsPerPage]);  
   
+  //Mathc.ceil yuvarlama yapar. 
+
   const paginatedData = useMemo(() => {
 
     const start = (currentPage - 1) * itemsPerPage;

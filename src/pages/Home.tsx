@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
 import { useConfig } from "../hooks/useConfig";
 import dayjs from "dayjs";
 import "dayjs/locale/tr";
@@ -9,6 +8,7 @@ import ErrorBanner from "../components/ErrorBanner";
 import SplashScreen from "../pages/SplashScreen";
 import { usePagination } from "../hooks/usePagination";
 import { useFetchWorldTime } from "../hooks/useFetchWorldTime";
+import { useSearch } from "../hooks/useSearch";
 
 dayjs.locale("tr");
 
@@ -24,22 +24,18 @@ const getGreeting = (hour: number) => {
 export default function Home() {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useConfig();
-  const [search, setSearch] = useState("");
+
+ // useSearch ile search state ve filter fonksiyonu geliyor
+  const { search, setSearch, filter } = useSearch();
 
   // API verisi
   const { timezones, currentTime, loading, error } = useFetchWorldTime();
 
-  //  Her zaman koşulsuz filteredZones hesapla
-  const filteredZones = useMemo(() => 
-    timezones.filter((zone) => zone.toLowerCase().includes(search.toLowerCase())),
-    [timezones, search]
-  );
+  // Filtreleme useSearch.filter ile yapılıyor
+  const filteredZones = filter(timezones);
 
   //  usePagination her zaman koşulsuz çağrılır
-  const { currentPage, goToPage, paginatedData, totalPages } = usePagination(
-    ITEMS_PER_PAGE,
-    filteredZones
-  );
+  const { currentPage, goToPage, paginatedData, totalPages } = usePagination(ITEMS_PER_PAGE, filteredZones);
 
   //  Offline kontrolü
   if (!navigator.onLine) {
@@ -49,6 +45,8 @@ export default function Home() {
   //  Yüklenme & Hata kontrolleri
   if (loading) return <SplashScreen />;
   if (error) return <ErrorBanner type="api" message={error} onRetry={() => window.location.reload()} />;
+  
+  //Veri alınamazsa
   if (!timezones.length || !currentTime) return <ErrorBanner type="unknown" message="Veri alınamadı." />;
 
   //  Tarih ve saat formatlama
@@ -76,8 +74,6 @@ export default function Home() {
         css={styles.searchStyle}
         type="text"
         placeholder="Arama"
-        name="timezoneSearch"
-        id="timezoneSearch"
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);

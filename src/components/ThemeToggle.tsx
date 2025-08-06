@@ -6,6 +6,11 @@ const ThemeToggle = () => {
   // useConfig hook'u ile mevcut config ve setTheme fonksiyonunu aldım
   const { config, setTheme } = useConfig();
 
+
+  
+  // console.log("🔄 ThemeToggle rendered");  optimizasyon gerekli mi diye kontrol
+
+
   // Tema değiştirmek için bir fonksiyon tanımladım
   const toggle = () => {
     // Mevcut tema light ise dark yap, değilse light yap
@@ -20,5 +25,6 @@ const ThemeToggle = () => {
     </button>
   );
 };
+
 
 export default ThemeToggle;
